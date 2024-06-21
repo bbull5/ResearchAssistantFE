@@ -21,7 +21,7 @@ const Upload: React.FC = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('API_ENDPOINT/upload', formData, {
+            const response = await axios.post('https://ka4ngtiaeg.execute-api.us-east-2.amazonaws.com/dev/Upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/fomr-data',
                 },
@@ -35,7 +35,7 @@ const Upload: React.FC = () => {
 
     return (
         <div>
-            <div {...getRootProps()} style={{ border: '2px dashed #cccccc', padding: '20px', cursor: 'pointer'}}>
+            <div {...getRootProps()} className="dropzone">
                 <input {...getInputProps()} />
                 {file ? <p>{file.name}</p> : <p>Drag 'n' drop a PDF file here, or click to select one.</p>}
             </div>
